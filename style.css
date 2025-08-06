@@ -1,0 +1,231 @@
+/*
+ * Global stylesheet for the International Science Consulting and Training
+ * website.  The palette and typographic scale are derived from the
+ * original ISCT7 Webnode site but cleaned up for a modern, professional
+ * presentation.  All pages share this stylesheet to ensure a
+ * consistent look and feel across the site.
+ */
+
+/* Colour variables make it easy to adjust the theme in one place. */
+:root {
+  --primary-color: #2ecc71; /* soft green accent used in headings and links */
+  --dark-color: #222;        /* dark background for navigation and footer */
+  --light-color: #ffffff;    /* white text on dark backgrounds */
+  --neutral-bg: #f9f9f9;     /* very light grey page background */
+  --card-bg: #ffffff;        /* card background colour */
+  --card-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Basic reset and typography. */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: var(--neutral-bg);
+}
+
+h1, h2, h3, h4 {
+  margin-top: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Navigation bar at the top of every page. */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  background-color: var(--dark-color);
+  padding: 0.75rem 1rem;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+nav a {
+  color: var(--light-color);
+  font-weight: 600;
+  transition: color 0.2s ease-in-out;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--primary-color);
+}
+
+/* Hero section for the home page.  A dark overlay sits above
+   the background image to improve text contrast. */
+.hero {
+  position: relative;
+  height: 80vh;
+  background: url('hero.jpg') center/cover no-repeat;
+  color: var(--light-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+.hero .content {
+  position: relative;
+  z-index: 1;
+  padding: 0 1rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  max-width: 700px;
+  margin: auto;
+}
+
+/* Generic section container for page content.  A maximum width
+   and centred layout keep paragraphs easy to read on wide screens. */
+.section {
+  padding: 3rem 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section h2 {
+  color: var(--dark-color);
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  border-left: 6px solid var(--primary-color);
+  padding-left: 0.5rem;
+}
+
+.section p {
+  margin-bottom: 1rem;
+}
+
+/* Services overview cards on the home page. */
+.services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.service-card {
+  flex: 1 1 300px;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px var(--card-shadow);
+  padding: 2rem;
+  text-align: left;
+  transition: transform 0.2s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-card h3 {
+  margin-top: 0;
+  color: var(--primary-color);
+}
+
+/* News list styling.  Each news item is separated with a line. */
+.news-list li {
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+/* Blog list styling.  The blog page shows links to chats and projects. */
+.blog-list li {
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+/* Training and consulting lists use nested lists.  Add indentation. */
+.list-section ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.list-section ul ul {
+  list-style-type: circle;
+}
+
+/* Project cards on the R&D projects page. */
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.project-item {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px var(--card-shadow);
+}
+
+.project-item h3 {
+  margin-top: 0;
+  color: var(--primary-color);
+}
+
+/* Contact page styling. */
+.contact-details {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px var(--card-shadow);
+}
+
+.contact-details p {
+  margin: 0.5rem 0;
+}
+
+/* Footer styling. */
+footer {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.25rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+}
